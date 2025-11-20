@@ -1,0 +1,1137 @@
+{
+  "content": [
+    {
+      "id": "7c8a9b1",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "background_background": "gradient",
+        "background_color": "#4158D0",
+        "background_color_b": "#C850C0",
+        "background_gradient_angle": {
+          "unit": "deg",
+          "size": 45
+        },
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "0",
+          "bottom": "100",
+          "left": "0"
+        }
+      },
+      "elements": [
+        {
+          "id": "1a2b3c4",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50
+          },
+          "elements": [
+            {
+              "id": "hero-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Master Digital Marketing in 2024",
+                "header_size": "h1",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 48
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "hero-subtitle",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Join Our Free Live Webinar",
+                "header_size": "h3",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24
+                },
+                "typography_font_weight": "400"
+              }
+            },
+            {
+              "id": "hero-description",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Learn the latest strategies and techniques from industry experts. Discover how to scale your business with proven digital marketing tactics.</p>",
+                "text_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18
+                }
+              }
+            },
+            {
+              "id": "event-details-inline",
+              "elType": "widget",
+              "widgetType": "icon-list",
+              "settings": {
+                "icon_list": [
+                  {
+                    "text": "📅 Date: March 25, 2024",
+                    "_id": "date1"
+                  },
+                  {
+                    "text": "🕐 Time: 2:00 PM EST",
+                    "_id": "time1"
+                  },
+                  {
+                    "text": "⏱️ Duration: 60 minutes",
+                    "_id": "duration1"
+                  }
+                ],
+                "icon_color": "#FFFFFF",
+                "text_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 16
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "2b3c4d5",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50
+          },
+          "elements": [
+            {
+              "id": "registration-form",
+              "elType": "widget",
+              "widgetType": "form",
+              "settings": {
+                "form_name": "Webinar Registration",
+                "form_fields": [
+                  {
+                    "custom_id": "name",
+                    "field_type": "text",
+                    "field_label": "Full Name",
+                    "placeholder": "Enter your full name",
+                    "required": "true",
+                    "_id": "name_field"
+                  },
+                  {
+                    "custom_id": "email",
+                    "field_type": "email",
+                    "field_label": "Email Address",
+                    "placeholder": "your.email@example.com",
+                    "required": "true",
+                    "_id": "email_field"
+                  },
+                  {
+                    "custom_id": "company",
+                    "field_type": "text",
+                    "field_label": "Company Name",
+                    "placeholder": "Your company",
+                    "required": "false",
+                    "_id": "company_field"
+                  },
+                  {
+                    "custom_id": "phone",
+                    "field_type": "tel",
+                    "field_label": "Phone Number (Optional)",
+                    "placeholder": "+1 (555) 123-4567",
+                    "required": "false",
+                    "_id": "phone_field"
+                  }
+                ],
+                "button_text": "Reserve My Spot →",
+                "background_color": "#FFFFFF",
+                "border_radius": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "40",
+                  "right": "40",
+                  "bottom": "40",
+                  "left": "40"
+                },
+                "button_background_color": "#FF6B6B",
+                "button_text_color": "#FFFFFF"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "speaker-section",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F8F9FA",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "0",
+          "bottom": "80",
+          "left": "0"
+        }
+      },
+      "elements": [
+        {
+          "id": "speaker-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "speaker-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Meet Your Expert Speaker",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#2C3E50",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 36
+                },
+                "typography_font_weight": "700"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "speaker-content",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F8F9FA",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "80",
+          "left": "0"
+        }
+      },
+      "elements": [
+        {
+          "id": "speaker-img-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "speaker-image",
+              "elType": "widget",
+              "widgetType": "image",
+              "settings": {
+                "image": {
+                  "url": "https://via.placeholder.com/400x400/4158D0/FFFFFF?text=Speaker+Photo"
+                },
+                "image_size": "medium",
+                "border_radius": {
+                  "unit": "px",
+                  "size": 10
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "speaker-bio-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 67
+          },
+          "elements": [
+            {
+              "id": "speaker-name",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Dr. Sarah Johnson",
+                "header_size": "h3",
+                "title_color": "#2C3E50",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 28
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "speaker-title",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p><strong>Digital Marketing Strategist | TEDx Speaker | Forbes Contributor</strong></p>",
+                "text_color": "#7F8C8D",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 16
+                }
+              }
+            },
+            {
+              "id": "speaker-bio",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>With over 15 years of experience in digital marketing, Dr. Johnson has helped Fortune 500 companies increase their online presence by an average of 300%. She's the author of \"Digital Excellence\" and has spoken at conferences worldwide.</p><p>Her expertise includes SEO, content marketing, social media strategy, and conversion optimization. She holds a Ph.D. in Marketing from Stanford University and has been featured in major publications including Forbes, Entrepreneur, and Inc. Magazine.</p>",
+                "text_color": "#2C3E50",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 16
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.6
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "what-learn-section",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "0",
+          "bottom": "80",
+          "left": "0"
+        }
+      },
+      "elements": [
+        {
+          "id": "learn-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "learn-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "What You'll Learn",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#2C3E50",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 36
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "learn-subtitle",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center;'>This comprehensive webinar will equip you with actionable strategies you can implement immediately</p>",
+                "text_color": "#7F8C8D",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "features-section",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": {
+          "unit": "px",
+          "top": "20",
+          "right": "0",
+          "bottom": "80",
+          "left": "0"
+        }
+      },
+      "elements": [
+        {
+          "id": "feature-col-1",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "feature-icon-1",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "icon": {
+                  "value": "fas fa-chart-line"
+                },
+                "title_text": "Growth Strategies",
+                "description_text": "Discover proven tactics to scale your business and increase revenue by 10x",
+                "icon_color": "#4158D0",
+                "title_color": "#2C3E50",
+                "description_color": "#7F8C8D"
+              }
+            }
+          ]
+        },
+        {
+          "id": "feature-col-2",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "feature-icon-2",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "icon": {
+                  "value": "fas fa-bullhorn"
+                },
+                "title_text": "Marketing Automation",
+                "description_text": "Learn how to automate your marketing processes and save 20+ hours per week",
+                "icon_color": "#4158D0",
+                "title_color": "#2C3E50",
+                "description_color": "#7F8C8D"
+              }
+            }
+          ]
+        },
+        {
+          "id": "feature-col-3",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "feature-icon-3",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "icon": {
+                  "value": "fas fa-users"
+                },
+                "title_text": "Audience Building",
+                "description_text": "Master the art of building an engaged audience across all major platforms",
+                "icon_color": "#4158D0",
+                "title_color": "#2C3E50",
+                "description_color": "#7F8C8D"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "features-section-2",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "80",
+          "left": "0"
+        }
+      },
+      "elements": [
+        {
+          "id": "feature-col-4",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "feature-icon-4",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "icon": {
+                  "value": "fas fa-rocket"
+                },
+                "title_text": "Conversion Optimization",
+                "description_text": "Boost your conversion rates with proven psychological triggers and design principles",
+                "icon_color": "#4158D0",
+                "title_color": "#2C3E50",
+                "description_color": "#7F8C8D"
+              }
+            }
+          ]
+        },
+        {
+          "id": "feature-col-5",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "feature-icon-5",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "icon": {
+                  "value": "fas fa-search"
+                },
+                "title_text": "SEO Mastery",
+                "description_text": "Rank #1 on Google with the latest SEO techniques and algorithm updates",
+                "icon_color": "#4158D0",
+                "title_color": "#2C3E50",
+                "description_color": "#7F8C8D"
+              }
+            }
+          ]
+        },
+        {
+          "id": "feature-col-6",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "feature-icon-6",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "icon": {
+                  "value": "fas fa-dollar-sign"
+                },
+                "title_text": "ROI Maximization",
+                "description_text": "Calculate and optimize your marketing ROI with data-driven decision making",
+                "icon_color": "#4158D0",
+                "title_color": "#2C3E50",
+                "description_color": "#7F8C8D"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agenda-section",
+      "elType": "section",
+      "settings": {
+        "background_background": "gradient",
+        "background_color": "#667EEA",
+        "background_color_b": "#764BA2",
+        "background_gradient_angle": {
+          "unit": "deg",
+          "size": 135
+        },
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "0",
+          "bottom": "80",
+          "left": "0"
+        }
+      },
+      "elements": [
+        {
+          "id": "agenda-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "agenda-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Webinar Agenda",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 36
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "agenda-timeline",
+              "elType": "widget",
+              "widgetType": "icon-list",
+              "settings": {
+                "icon_list": [
+                  {
+                    "text": "0:00 - 0:05 | Welcome & Introduction",
+                    "_id": "agenda1"
+                  },
+                  {
+                    "text": "0:05 - 0:20 | The State of Digital Marketing in 2024",
+                    "_id": "agenda2"
+                  },
+                  {
+                    "text": "0:20 - 0:35 | 5 Proven Growth Strategies",
+                    "_id": "agenda3"
+                  },
+                  {
+                    "text": "0:35 - 0:45 | Live Demo: Marketing Automation Tools",
+                    "_id": "agenda4"
+                  },
+                  {
+                    "text": "0:45 - 0:55 | Case Studies & Real Results",
+                    "_id": "agenda5"
+                  },
+                  {
+                    "text": "0:55 - 1:00 | Q&A Session",
+                    "_id": "agenda6"
+                  }
+                ],
+                "icon_color": "#FFFFFF",
+                "text_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18
+                },
+                "space_between": {
+                  "unit": "px",
+                  "size": 15
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "countdown-section",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#2C3E50",
+        "padding": {
+          "unit": "px",
+          "top": "60",
+          "right": "0",
+          "bottom": "60",
+          "left": "0"
+        }
+      },
+      "elements": [
+        {
+          "id": "countdown-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "countdown-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Event Starts In:",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24
+                },
+                "typography_font_weight": "400"
+              }
+            },
+            {
+              "id": "countdown-timer",
+              "elType": "widget",
+              "widgetType": "countdown",
+              "settings": {
+                "due_date": "2024-03-25 14:00:00",
+                "label_days": "Days",
+                "label_hours": "Hours",
+                "label_minutes": "Minutes",
+                "label_seconds": "Seconds",
+                "show_days": "yes",
+                "show_hours": "yes",
+                "show_minutes": "yes",
+                "show_seconds": "yes",
+                "digits_color": "#FFFFFF",
+                "label_color": "#BDC3C7",
+                "box_background_color": "#34495E",
+                "border_radius": {
+                  "unit": "px",
+                  "size": 5
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bonus-section",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFF9E6",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "0",
+          "bottom": "80",
+          "left": "0"
+        }
+      },
+      "elements": [
+        {
+          "id": "bonus-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "bonus-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "🎁 Exclusive Bonuses for Attendees",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#2C3E50",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 32
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "bonus-list",
+              "elType": "widget",
+              "widgetType": "icon-list",
+              "settings": {
+                "icon_list": [
+                  {
+                    "text": "✅ Digital Marketing Toolkit (Value: $297)",
+                    "_id": "bonus1"
+                  },
+                  {
+                    "text": "✅ 50+ Ready-to-Use Templates",
+                    "_id": "bonus2"
+                  },
+                  {
+                    "text": "✅ Exclusive Access to Private Community",
+                    "_id": "bonus3"
+                  },
+                  {
+                    "text": "✅ Recording of the Full Webinar",
+                    "_id": "bonus4"
+                  },
+                  {
+                    "text": "✅ Free 30-Minute Consultation (First 100 Registrants)",
+                    "_id": "bonus5"
+                  }
+                ],
+                "icon_color": "#27AE60",
+                "text_color": "#2C3E50",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18
+                },
+                "space_between": {
+                  "unit": "px",
+                  "size": 15
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faq-section",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "0",
+          "bottom": "80",
+          "left": "0"
+        }
+      },
+      "elements": [
+        {
+          "id": "faq-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "faq-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Frequently Asked Questions",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#2C3E50",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 36
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "faq-accordion",
+              "elType": "widget",
+              "widgetType": "accordion",
+              "settings": {
+                "tabs": [
+                  {
+                    "tab_title": "Is this webinar really free?",
+                    "tab_content": "Yes! This webinar is 100% free. We believe in providing value upfront and helping you succeed.",
+                    "_id": "faq1"
+                  },
+                  {
+                    "tab_title": "Will I get a recording?",
+                    "tab_content": "Absolutely! All registered attendees will receive a recording of the full webinar within 24 hours.",
+                    "_id": "faq2"
+                  },
+                  {
+                    "tab_title": "What if I can't attend live?",
+                    "tab_content": "No problem! Register anyway and we'll send you the recording. However, live attendees get priority for Q&A and special bonuses.",
+                    "_id": "faq3"
+                  },
+                  {
+                    "tab_title": "Is this suitable for beginners?",
+                    "tab_content": "Yes! We cover strategies for all levels - from beginners to advanced marketers. The content is designed to be actionable regardless of your experience level.",
+                    "_id": "faq4"
+                  },
+                  {
+                    "tab_title": "How long is the webinar?",
+                    "tab_content": "The webinar is 60 minutes long, including a Q&A session at the end.",
+                    "_id": "faq5"
+                  },
+                  {
+                    "tab_title": "Will there be a sales pitch?",
+                    "tab_content": "We'll briefly mention our advanced programs at the end, but the focus is on delivering massive value. You're under no obligation to purchase anything.",
+                    "_id": "faq6"
+                  }
+                ],
+                "title_color": "#2C3E50",
+                "content_color": "#7F8C8D",
+                "border_width": {
+                  "unit": "px",
+                  "size": 1
+                },
+                "border_color": "#E0E0E0"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "testimonials-section",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F8F9FA",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "0",
+          "bottom": "80",
+          "left": "0"
+        }
+      },
+      "elements": [
+        {
+          "id": "testimonials-heading-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "testimonials-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "What Past Attendees Say",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#2C3E50",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 36
+                },
+                "typography_font_weight": "700"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "testimonials-content",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F8F9FA",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "80",
+          "left": "0"
+        }
+      },
+      "elements": [
+        {
+          "id": "testimonial-col-1",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "testimonial-1",
+              "elType": "widget",
+              "widgetType": "testimonial",
+              "settings": {
+                "testimonial_content": "This webinar completely transformed my marketing strategy. Within 30 days of implementing what I learned, we saw a 150% increase in qualified leads!",
+                "testimonial_name": "Michael Chen",
+                "testimonial_job": "CEO, TechStart Inc.",
+                "testimonial_image": {
+                  "url": "https://via.placeholder.com/100x100/667EEA/FFFFFF?text=MC"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "testimonial-col-2",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "testimonial-2",
+              "elType": "widget",
+              "widgetType": "testimonial",
+              "settings": {
+                "testimonial_content": "Dr. Johnson's insights are gold! I've attended dozens of webinars, but this one actually delivered practical, actionable advice. Highly recommended!",
+                "testimonial_name": "Emma Rodriguez",
+                "testimonial_job": "Marketing Director, GrowthCo",
+                "testimonial_image": {
+                  "url": "https://via.placeholder.com/100x100/C850C0/FFFFFF?text=ER"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "testimonial-col-3",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "testimonial-3",
+              "elType": "widget",
+              "widgetType": "testimonial",
+              "settings": {
+                "testimonial_content": "The bonus materials alone are worth more than most paid courses. This is a must-attend for anyone serious about digital marketing.",
+                "testimonial_name": "James Patterson",
+                "testimonial_job": "Founder, Digital Spark Agency",
+                "testimonial_image": {
+                  "url": "https://via.placeholder.com/100x100/4158D0/FFFFFF?text=JP"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cta-section",
+      "elType": "section",
+      "settings": {
+        "background_background": "gradient",
+        "background_color": "#FF6B6B",
+        "background_color_b": "#FF8E53",
+        "background_gradient_angle": {
+          "unit": "deg",
+          "size": 45
+        },
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "0",
+          "bottom": "80",
+          "left": "0"
+        }
+      },
+      "elements": [
+        {
+          "id": "cta-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "cta-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Ready to Transform Your Marketing?",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 36
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "cta-subheading",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; font-size: 20px;'>Join 5,000+ marketers who have already registered</p>",
+                "text_color": "#FFFFFF"
+              }
+            },
+            {
+              "id": "cta-button",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Save My Seat - It's FREE →",
+                "align": "center",
+                "button_type": "primary",
+                "link": {
+                  "url": "#registration-form"
+                },
+                "size": "lg",
+                "button_background_color": "#FFFFFF",
+                "button_text_color": "#FF6B6B",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                },
+                "typography_font_weight": "700",
+                "border_radius": {
+                  "unit": "px",
+                  "size": 50
+                },
+                "button_padding": {
+                  "unit": "px",
+                  "top": "20",
+                  "right": "50",
+                  "bottom": "20",
+                  "left": "50"
+                }
+              }
+            },
+            {
+              "id": "cta-urgency",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; margin-top: 20px;'>⚡ Limited spots available • No credit card required</p>",
+                "text_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 14
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "footer-section",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#2C3E50",
+        "padding": {
+          "unit": "px",
+          "top": "40",
+          "right": "0",
+          "bottom": "40",
+          "left": "0"
+        }
+      },
+      "elements": [
+        {
+          "id": "footer-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "footer-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center;'>© 2024 Your Company Name. All rights reserved.<br>Contact: info@yourcompany.com | Privacy Policy | Terms of Service</p>",
+                "text_color": "#BDC3C7",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 14
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "page_settings": {
+    "title": "Master Digital Marketing in 2024 - Free Webinar",
+    "post_status": "publish"
+  },
+  "version": "3.0.0",
+  "type": "page"
+}

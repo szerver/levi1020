@@ -1,0 +1,682 @@
+/**
+ * Custom CSS for Elementor Webinar Landing Page
+ *
+ * Add this to: Elementor > Custom CSS or Appearance > Customize > Additional CSS
+ */
+
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4158D0;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C850C0;
+}
+
+/* ========================================
+   REGISTRATION FORM ENHANCEMENTS
+   ======================================== */
+
+/* Form container shadow and hover effect */
+.elementor-widget-form {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.elementor-widget-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Form fields styling */
+.elementor-field-group input,
+.elementor-field-group textarea,
+.elementor-field-group select {
+  border: 2px solid #E0E0E0 !important;
+  border-radius: 5px !important;
+  padding: 15px !important;
+  font-size: 16px !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.elementor-field-group input:focus,
+.elementor-field-group textarea:focus,
+.elementor-field-group select:focus {
+  border-color: #4158D0 !important;
+  box-shadow: 0 0 0 3px rgba(65, 88, 208, 0.1) !important;
+  outline: none !important;
+}
+
+/* Form button styling */
+.elementor-button.elementor-size-lg {
+  font-size: 18px !important;
+  padding: 18px 40px !important;
+  border-radius: 50px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.elementor-button.elementor-size-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+/* Form validation messages */
+.elementor-message.elementor-message-danger {
+  background-color: #FFE5E5;
+  color: #D32F2F;
+  padding: 15px;
+  border-left: 4px solid #D32F2F;
+  border-radius: 5px;
+}
+
+.elementor-message.elementor-message-success {
+  background-color: #E8F5E9;
+  color: #388E3C;
+  padding: 15px;
+  border-left: 4px solid #388E3C;
+  border-radius: 5px;
+}
+
+/* Required field asterisk */
+.elementor-mark-required {
+  color: #FF6B6B;
+  font-weight: bold;
+}
+
+/* ========================================
+   COUNTDOWN TIMER STYLING
+   ======================================== */
+
+/* Countdown container */
+.elementor-countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+/* Individual countdown items */
+.elementor-countdown-item {
+  background: #34495E;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 100px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.elementor-countdown-item:hover {
+  transform: scale(1.05);
+}
+
+/* Countdown digits */
+.elementor-countdown-digits {
+  font-size: 48px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+/* Countdown labels */
+.elementor-countdown-label {
+  font-size: 14px;
+  color: #BDC3C7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ========================================
+   ICON BOXES & FEATURES
+   ======================================== */
+
+/* Feature icon boxes */
+.elementor-icon-box-wrapper {
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background: #FFFFFF;
+  border: 2px solid transparent;
+}
+
+.elementor-icon-box-wrapper:hover {
+  border-color: #4158D0;
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(65, 88, 208, 0.15);
+}
+
+/* Icon styling */
+.elementor-icon {
+  font-size: 48px !important;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.elementor-icon-box-wrapper:hover .elementor-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Icon box title */
+.elementor-icon-box-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #2C3E50;
+}
+
+/* Icon box description */
+.elementor-icon-box-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #7F8C8D;
+}
+
+/* ========================================
+   ACCORDION / FAQ STYLING
+   ======================================== */
+
+/* Accordion item */
+.elementor-accordion-item {
+  margin-bottom: 15px;
+  border: 2px solid #E0E0E0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.elementor-accordion-item:hover {
+  border-color: #4158D0;
+}
+
+/* Accordion title */
+.elementor-tab-title {
+  background: #F8F9FA;
+  padding: 20px 25px;
+  font-weight: 600;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.elementor-tab-title:hover {
+  background: #E9ECEF;
+}
+
+.elementor-tab-title.elementor-active {
+  background: #4158D0;
+  color: #FFFFFF;
+}
+
+/* Accordion icon */
+.elementor-accordion-icon {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+}
+
+.elementor-tab-title.elementor-active .elementor-accordion-icon {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Accordion content */
+.elementor-tab-content {
+  padding: 20px 25px;
+  background: #FFFFFF;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* ========================================
+   TESTIMONIALS
+   ======================================== */
+
+/* Testimonial card */
+.elementor-testimonial-wrapper {
+  background: #FFFFFF;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.elementor-testimonial-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Quote icon */
+.elementor-testimonial-wrapper::before {
+  content: '"';
+  font-size: 80px;
+  color: #E0E0E0;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+/* Testimonial content */
+.elementor-testimonial-content {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 20px;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+/* Testimonial name */
+.elementor-testimonial-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: #2C3E50;
+  margin-bottom: 5px;
+}
+
+/* Testimonial job */
+.elementor-testimonial-job {
+  font-size: 14px;
+  color: #7F8C8D;
+}
+
+/* Testimonial image */
+.elementor-testimonial-image img {
+  border-radius: 50%;
+  border: 4px solid #4158D0;
+  margin-bottom: 15px;
+}
+
+/* ========================================
+   BONUS SECTION
+   ======================================== */
+
+/* Bonus badge effect */
+.bonus-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: #2C3E50;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 10px;
+  box-shadow: 0 2px 10px rgba(255, 165, 0, 0.3);
+}
+
+/* Icon list for bonuses */
+.elementor-icon-list-item {
+  padding: 12px 0;
+  transition: transform 0.3s ease;
+}
+
+.elementor-icon-list-item:hover {
+  transform: translateX(10px);
+}
+
+/* ========================================
+   BUTTONS & CALL-TO-ACTIONS
+   ======================================== */
+
+/* Primary CTA button */
+.elementor-button-primary {
+  background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+  border: none;
+  border-radius: 50px;
+  padding: 18px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.elementor-button-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.elementor-button-primary:hover::before {
+  left: 100%;
+}
+
+.elementor-button-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
+}
+
+/* Secondary button */
+.elementor-button-secondary {
+  background: transparent;
+  border: 2px solid #FFFFFF;
+  color: #FFFFFF;
+  border-radius: 50px;
+  padding: 15px 35px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.elementor-button-secondary:hover {
+  background: #FFFFFF;
+  color: #4158D0;
+}
+
+/* ========================================
+   SECTION BACKGROUNDS & EFFECTS
+   ======================================== */
+
+/* Animated gradient background */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-animated {
+  background-size: 200% 200%;
+  animation: gradient-shift 10s ease infinite;
+}
+
+/* Parallax effect helper */
+.parallax-section {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 768px) {
+  /* Countdown timer mobile */
+  .elementor-countdown-wrapper {
+    gap: 10px;
+  }
+
+  .elementor-countdown-item {
+    min-width: 70px;
+    padding: 15px 10px;
+  }
+
+  .elementor-countdown-digits {
+    font-size: 32px;
+  }
+
+  .elementor-countdown-label {
+    font-size: 11px;
+  }
+
+  /* Form fields mobile */
+  .elementor-field-group input,
+  .elementor-field-group textarea {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+
+  /* Buttons mobile */
+  .elementor-button.elementor-size-lg {
+    width: 100%;
+    padding: 15px 30px !important;
+    font-size: 16px !important;
+  }
+
+  /* Icon boxes mobile */
+  .elementor-icon-box-wrapper {
+    margin-bottom: 30px;
+  }
+
+  /* Testimonials mobile */
+  .elementor-testimonial-wrapper {
+    margin-bottom: 20px;
+  }
+
+  /* Section padding mobile */
+  .elementor-section {
+    padding: 40px 15px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Headings mobile */
+  h1 {
+    font-size: 32px !important;
+  }
+
+  h2 {
+    font-size: 28px !important;
+  }
+
+  h3 {
+    font-size: 22px !important;
+  }
+
+  /* Countdown extra small screens */
+  .elementor-countdown-digits {
+    font-size: 24px;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY IMPROVEMENTS
+   ======================================== */
+
+/* Focus visible for keyboard navigation */
+*:focus-visible {
+  outline: 3px solid #4158D0;
+  outline-offset: 2px;
+}
+
+/* Skip to content link */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #4158D0;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .elementor-button {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+  .elementor-widget-form,
+  .elementor-widget-button,
+  .elementor-countdown-wrapper {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Pulse animation for CTAs */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.8s ease-out;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+/* Text utilities */
+.text-gradient {
+  background: linear-gradient(135deg, #4158D0, #C850C0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Spacing utilities */
+.mb-small { margin-bottom: 20px !important; }
+.mb-medium { margin-bottom: 40px !important; }
+.mb-large { margin-bottom: 60px !important; }
+
+.mt-small { margin-top: 20px !important; }
+.mt-medium { margin-top: 40px !important; }
+.mt-large { margin-top: 60px !important; }
+
+/* Container max-width */
+.container-narrow {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.container-medium {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Box shadow utilities */
+.shadow-small {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-medium {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.shadow-large {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
