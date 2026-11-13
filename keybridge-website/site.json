@@ -1,0 +1,19 @@
+{
+  "_megjegyzes": "Ezt az egy fájlt kell kitölteni indulás előtt. A szögletes zárójeles értékek helykitöltők.",
+  "url": "https://www.keybridge.hu",
+  "name": "Keybridge Exit Partners",
+  "legal_name": "[cégnév, cégforma]",
+  "tagline": "Exitre felkészítő program magyar középvállalkozások tulajdonosainak",
+  "email": "[e-mail cím]",
+  "press_email": "[sajtó e-mail cím]",
+  "phone": "[telefonszám]",
+  "address": "[székhely címe]",
+  "city": "Budapest",
+  "company_reg": "[cégjegyzékszám]",
+  "tax_no": "[adószám]",
+  "linkedin": "",
+  "form_endpoint": "",
+  "newsletter_endpoint": "",
+  "analytics_id": "",
+  "founded": "2026"
+}

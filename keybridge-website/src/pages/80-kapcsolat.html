@@ -1,0 +1,59 @@
+url: /kapcsolat/
+title: Kapcsolat: beszélgessünk a cégéről, amíg nem sürgős
+crumb: Kapcsolat
+desc: Kérjen kötetlen első beszélgetést a Keybridge Exit Partners partnereitől. Semmire nem kötelez, a megkeresést bizalmasan kezeljük, kérésre titoktartási nyilatkozattal.
+nav: kapcsolat
+schema: ContactPage
+cta: off
+---
+<header class="page-head"><div class="wrap">{{crumbs}}
+<span class="eyebrow">Kapcsolat</span>
+<h1 class="h1">Beszélgessünk a cégéről, <em>amíg nem sürgős</em></h1>
+<p class="lead">Az első beszélgetés kötetlen, és semmire nem kötelez. Arról szól, ami Önnek fontos, nem a programról.</p>
+</div></header>
+
+<section class="band" aria-labelledby="urlap-cim">
+<div class="wrap split" style="--l:1.25fr;--r:.75fr">
+<div class="stack stack-l">
+<h2 class="h2" id="urlap-cim">Írjon <em>néhány sort</em></h2>
+<form class="form" data-form="kapcsolat" novalidate>
+<div class="field"><label for="f-nev">Név</label><input id="f-nev" name="nev" type="text" required autocomplete="name"></div>
+<div class="field"><label for="f-ceg">Cég neve <span class="muted">(nem kötelező)</span></label><input id="f-ceg" name="ceg" type="text" autocomplete="organization"></div>
+<div class="field"><label for="f-email">E-mail cím</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
+<div class="field"><label for="f-tel">Telefonszám <span class="muted">(nem kötelező)</span></label><input id="f-tel" name="telefon" type="tel" autocomplete="tel"></div>
+<div class="field"><label for="f-meret">A cég éves árbevétele</label><select id="f-meret" name="arbevetel"><option value="">Válasszon</option><option>1 milliárd Ft alatt</option><option>1 és 3 milliárd Ft között</option><option>3 és 10 milliárd Ft között</option><option>10 milliárd Ft felett</option></select></div>
+<div class="field"><label for="f-tema">Miben segíthetünk?</label><select id="f-tema" name="tema"><option value="">Válasszon</option><option>Első beszélgetést kérek</option><option>Diagnózis érdekel</option><option>Cégeladásra készülök</option><option>Családi utódlás, generációváltás</option><option>Átadnám a vezetést, de tulajdonos maradnék</option><option>Bizalmi vagyonkezelés</option><option>Kérem a 28 oldalas prospektust</option><option>Sajtómegkeresés</option></select></div>
+<div class="field field--full"><label for="f-uzenet">Üzenet <span class="muted">(nem kötelező)</span></label><textarea id="f-uzenet" name="uzenet" placeholder="Például: mikorra tervez változást, mi a legnagyobb kérdése?"></textarea></div>
+<input type="text" name="website" tabindex="-1" autocomplete="off" hidden>
+<div class="field field--full"><label class="check" for="f-ok"><input id="f-ok" name="hozzajarulas" type="checkbox" required><span>Elolvastam az <a href="/jogi/#adatkezeles">adatkezelési tájékoztatót</a>, és hozzájárulok, hogy a megadott adataimat a kapcsolatfelvétel céljából kezeljék.</span></label></div>
+<div class="field field--full"><button class="btn" type="submit" style="align-self:flex-start">Elküldöm</button></div>
+<div class="form-status" role="status" tabindex="-1" hidden></div>
+</form>
+</div>
+<aside class="stack stack-l" aria-label="Elérhetőségek">
+<div class="box stack"><h2 class="h3">Közvetlenül</h2>
+<p><strong>E-mail</strong><br>{{cfg:email}}</p>
+<p><strong>Telefon</strong><br>{{cfg:phone}}</p>
+<p><strong>Cím</strong><br>{{cfg:address}}</p>
+<p class="note">Személyesen és online is szívesen találkozunk.</p></div>
+<div class="stack"><h2 class="h3">Mi történik ezután?</h2>
+<ol class="steps" style="--min:100%;--gap:14px">
+<li><p><strong>Személyesen jelentkezünk,</strong> és időpontot egyeztetünk.</p></li>
+<li><p><strong>Kötetlen beszélgetés</strong> a cégről és az Ön terveiről.</p></li>
+<li><p><strong>Ön dönt</strong>, hogy kér-e diagnózist. Ha nem, akkor is kap néhány gondolatot, amelyet magával vihet.</p></li>
+</ol></div>
+<div class="box box--line"><h2 class="h4">Bizalmasan kezeljük</h2><p style="margin-top:8px" class="small">Kérésre titoktartási nyilatkozatot írunk alá az első találkozó előtt. A megkereséséről harmadik fél nem szerez tudomást.</p></div>
+</aside>
+</div>
+</section>
+
+<section class="band band--parchment" aria-labelledby="elotte">
+<div class="wrap stack stack-l">
+<h2 class="h2" id="elotte">Előbb <em>tájékozódna?</em></h2>
+<div class="grid" style="--min:260px">
+<a class="tile" href="/eszkozok/onteszt/"><span class="meta"><span>2 perc</span></span><h3 class="h3">Önteszt</h3><p>Nyolc kérdés, amelyet egy vevő is feltenne.</p><span class="more">Kitöltöm →</span></a>
+<a class="tile" href="/eszkozok/cegertek-kalkulator/"><span class="meta"><span>3 perc</span></span><h3 class="h3">Cégérték-kalkulátor</h3><p>Mennyit ér egy fél szorzó az Ön eredményénél?</p><span class="more">Számolok →</span></a>
+<a class="tile" href="/gyik/"><span class="meta"><span>5 perc</span></span><h3 class="h3">Gyakori kérdések</h3><p>Mibe kerül, kinek szól, mennyire bizalmas.</p><span class="more">Elolvasom →</span></a>
+</div>
+</div>
+</section>

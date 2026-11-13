@@ -1,0 +1,61 @@
+url: /eszkozok/cegertek-kalkulator/
+title: Cégérték-kalkulátor: mennyit ér egy fél szorzó?
+crumb: Cégérték-kalkulátor
+desc: Interaktív kalkulátor cégtulajdonosoknak: állítsa be az EBITDA-t és az értékelési szorzót, és nézze meg, mennyivel nő a vállalatérték, ha javul az eredmény és csökken a kockázat. Szemléltetés, nem értékelés.
+nav: tudastar
+---
+<header class="page-head"><div class="wrap">{{crumbs}}
+<span class="eyebrow">Kalkulátor · 3 perc</span>
+<h1 class="h1">Egy fél szorzó akár <em>125 millió forint</em></h1>
+<p class="lead">Ez egyszerű szorzás, nem jóslat. Állítsa be a saját számait, és nézze meg, mit jelent, ha a jobb működés több eredményt hoz, a kisebb kockázat miatt pedig a vevő magasabb szorzóval számol.</p>
+</div></header>
+
+<section class="band band--parchment" aria-label="Cégérték-kalkulátor">
+<div class="wrap">
+<div class="tool" data-calc>
+<div class="split" style="--l:.9fr;--r:1.1fr">
+<div class="stack stack-l">
+<span class="eyebrow">Az Ön számai</span>
+<div class="range-row"><div class="top"><label for="c-ebitda">Éves EBITDA ma</label><output for="c-ebitda" data-o="ebitda">240 M Ft</output></div><input id="c-ebitda" data-k="ebitda" type="range" min="50" max="2000" step="10" value="240"></div>
+<div class="range-row"><div class="top"><label for="c-mult">Értékelési szorzó ma</label><output for="c-mult" data-o="mult">4x</output></div><input id="c-mult" data-k="mult" type="range" min="2" max="9" step="0.5" value="4"></div>
+<hr class="rule">
+<span class="eyebrow">A program végén</span>
+<div class="range-row"><div class="top"><label for="c-growth">Az EBITDA növekedése</label><output for="c-growth" data-o="growth">+95%</output></div><input id="c-growth" data-k="growth" type="range" min="0" max="150" step="5" value="95"></div>
+<div class="range-row"><div class="top"><label for="c-dmult">A szorzó javulása</label><output for="c-dmult" data-o="dmult">+1,5x</output></div><input id="c-dmult" data-k="dmult" type="range" min="0" max="3" step="0.25" value="1.5"></div>
+<p class="note">Az alapértékek a prospektusunk illusztratív példáját követik: 3 000 M Ft árbevétel 8 százalékos EBITDA aránnyal induláskor, 3 900 M Ft árbevétel 12 százalékos aránnyal az 5. év végén.</p>
+</div>
+<div class="stack stack-l">
+<div class="kpis"><div class="kpi"><span>Érték ma</span><b data-o="v0">960 M Ft</b></div><div class="kpi"><span>Érték a végén</span><b data-o="v1">2 574 M Ft</b></div><div class="kpi kpi--hl"><span>Többlet</span><b data-o="gain">+1 614 M Ft</b></div></div>
+<div class="stack stack-s">
+<div class="wf" role="img" aria-label="Vízesésdiagram a vállalatérték változásáról: érték ma, többlet a magasabb eredményből, többlet a magasabb szorzóból, érték a program végén.">
+<div><b>960</b><i></i></div><div class="a"><b>+912</b><i></i></div><div class="b"><b>+702</b><i></i></div><div class="t"><b>2 574</b><i></i></div>
+</div>
+<div class="wf-labels"><span>Érték ma</span><span>Magasabb eredményből</span><span>Magasabb szorzóból</span><span>Érték a végén</span></div>
+</div>
+<p>A program végén az EBITDA <strong data-o="e1">468 M Ft</strong>, a szorzó <strong data-o="m1">5,5x</strong>. Ennél az eredménynél egy fél szorzó <strong data-o="half">234 M Ft</strong> különbség a vállalatértékben.</p>
+</div>
+</div>
+<hr class="rule" style="margin-block:28px">
+<div class="row" style="justify-content:space-between"><p class="note measure">A kalkulátor matematika, nem értékelés és nem ígéret. A tényleges szorzó iparágtól, mérettől, piaci helyzettől és a vevőtől függ. A vállalatérték nem azonos azzal, amit a tulajdonos kap: abból még lejön a nettó adósság. A saját számait a diagnózis mutatja meg.</p><a class="btn" href="/diagnozis/">A saját számaim: diagnózis</a></div>
+</div>
+</div>
+</section>
+
+<section class="band" aria-labelledby="tabla">
+<div class="wrap split" style="--l:1fr;--r:1fr">
+<div class="stack"><h2 class="h2" id="tabla">Többlet a vállalatértékben, <em>millió forint</em></h2>
+<p>Keresse meg a saját eredményéhez legközelebbi sort.</p>
+<div class="table-wrap"><table class="table" style="min-width:420px">
+<thead><tr><th scope="col">Éves EBITDA</th><th scope="col" class="n">+0,5x</th><th scope="col" class="n">+1x</th><th scope="col" class="n">+1,5x</th></tr></thead>
+<tbody>
+<tr><td>100 M Ft</td><td class="n">50</td><td class="n">100</td><td class="n">150</td></tr>
+<tr><td>250 M Ft</td><td class="n hl">125</td><td class="n">250</td><td class="n">375</td></tr>
+<tr><td>500 M Ft</td><td class="n">250</td><td class="n">500</td><td class="n">750</td></tr>
+<tr><td>1 000 M Ft</td><td class="n">500</td><td class="n">1 000</td><td class="n">1 500</td></tr>
+</tbody></table></div></div>
+<div class="stack"><h2 class="h2">Mi mozgatja <em>a szorzót?</em></h2>
+<p>A szorzót a kockázat mozgatja. A vevő a jövőbeli pénzáramért fizet, és azt nézi, mennyire hihető ez a pénzáram az alapító nélkül.</p>
+<ul class="checks"><li>Kisebb tulajdonosi függés: a vevők és a döntések nem egy emberen mennek át.</li><li>Tiszta, könyvvizsgált számok: nincs mit magyarázni.</li><li>Diverzifikált, visszatérő bevétel: nem minden év indul nulláról.</li><li>Dokumentált működés és bizonyított menedzsment.</li></ul>
+<a class="link-arrow" href="/tudastar/nyolc-ertekhajto/" style="align-self:flex-start">A nyolc értékhajtó részletesen</a></div>
+</div>
+</section>

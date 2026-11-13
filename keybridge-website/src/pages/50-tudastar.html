@@ -1,0 +1,45 @@
+url: /tudastar/
+title: Tudástár: cégeladás, utódlás és önjáró cég, érthetően
+crumb: Tudástár
+desc: Cikkek, fogalomtár, esettár és interaktív eszközök cégtulajdonosoknak: normalizált EBITDA, earn-out, magáncég diszkont, bejelentett részesedés, bizalmi vagyonkezelés, utódlás. Forrásokkal, számpéldákkal.
+nav: tudastar
+schema: CollectionPage
+---
+<header class="page-head"><div class="wrap">{{crumbs}}
+<span class="eyebrow">Tudástár</span>
+<h1 class="h1">Amit a tárgyalóasztalnál szokás megtanulni, <em>itt előre elolvashatja</em></h1>
+<p class="lead">Az exit szakma tudása nagyrészt angolul, szakkönyvekben és ügyvédi irodákban él. Lefordítottuk magyar tulajdonosi nyelvre: rövid válasz az elején, számpélda a közepén, források a végén.</p>
+</div></header>
+
+<section class="band band--tight" aria-labelledby="eszkozok">
+<div class="wrap stack stack-l">
+<h2 class="h3" id="eszkozok">Kezdje egy eszközzel</h2>
+<div class="grid" style="--min:250px">
+<a class="tile tile--dark" href="/eszkozok/onteszt/"><span class="meta"><span>Önteszt</span><span>2 perc</span></span><h3 class="h3">Nyolc kérdés, amelyet egy vevő is feltenne</h3><p>Gyors önellenőrzés: mennyire áll meg a cég Ön nélkül?</p><span class="more">Kitöltöm →</span></a>
+<a class="tile tile--dark" href="/eszkozok/cegertek-kalkulator/"><span class="meta"><span>Kalkulátor</span><span>3 perc</span></span><h3 class="h3">Mennyit ér egy fél szorzó?</h3><p>Számolja ki, mit jelent a magasabb eredmény és a kisebb kockázat a vállalatértékben.</p><span class="more">Számolok →</span></a>
+<a class="tile" href="/tudastar/fogalomtar/"><span class="meta"><span>Fogalomtár</span></span><h3 class="h3">Az exit nyelve magyarul</h3><p>Locked box, drag along, earn-out, szabadságszám: 42 fogalom egy mondatban.</p><span class="more">Megnyitom →</span></a>
+<a class="tile" href="/tudastar/esetek/"><span class="meta"><span>Esettár</span></span><h3 class="h3">Valós esetek, valós tanulságok</h3><p>Zwack, Waberer’s, Gucci, Hermès, Patagonia, Murdoch és mások.</p><span class="more">Megnézem →</span></a>
+</div>
+</div>
+</section>
+
+<section class="band band--parchment" aria-labelledby="cikkek">
+<div class="wrap stack stack-l">
+<div class="row" style="justify-content:space-between;align-items:flex-end"><h2 class="h2" id="cikkek">Cikkek <em>és elemzések</em></h2><a class="link-arrow" href="/tudastar/feed.xml">RSS</a></div>
+<div class="filters" data-filters="#cikklista" role="group" aria-label="Szűrés témakör szerint">{{cat_filters}}</div>
+<div class="grid" id="cikklista" style="--min:300px">{{articles}}</div>
+</div>
+</section>
+
+<section class="band band--fir" aria-labelledby="hirlevel">
+<div class="wrap split split--center" style="--l:1fr;--r:1fr">
+<div class="stack"><span class="eyebrow">Tulajdonosi levél</span>
+<h2 class="h2" id="hirlevel">Havonta egy levél, <em>egy gondolat</em></h2>
+<p>Egy új cikk, egy valós eset és egy kérdés, amelyet érdemes feltennie magának. Reklám nélkül, bármikor leiratkozhat.</p></div>
+<form class="stack" data-form="hirlevel" novalidate>
+<div class="inline-form"><label class="vh" for="hl-email">E-mail cím</label><input id="hl-email" name="email" type="email" required autocomplete="email" placeholder="E-mail cím"><input type="text" name="website" tabindex="-1" autocomplete="off" hidden><button class="btn btn--brass" type="submit">Feliratkozom</button></div>
+<label class="check" for="hl-ok"><input id="hl-ok" name="hozzajarulas" type="checkbox" required><span>Hozzájárulok, hogy a Keybridge Exit Partners havonta hírlevelet küldjön. <a href="/jogi/#adatkezeles">Adatkezelési tájékoztató</a></span></label>
+<div class="form-status" role="status" tabindex="-1" hidden></div>
+</form>
+</div>
+</section>
