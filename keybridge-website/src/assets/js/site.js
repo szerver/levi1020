@@ -36,7 +36,7 @@
   $$('.scrolly').forEach(function (sc) {
     var steps = $$('.sc-step', sc), world = $('#sc-world', sc), chips = $$('.sc-chips li', sc), roles = $$('.sc-role span', sc);
     if (!steps.length || !world) return;
-    var Z = [1, 0.8, 0.62, 0.36, 0.36], ticking = false;
+    var Z = [1.55, 1.12, 0.78, 0.36, 0.36], ticking = false;
     sc.classList.add('js');
     var upd = function () {
       ticking = false;

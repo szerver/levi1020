@@ -1,6 +1,6 @@
 # Keybridge Exit Partners weboldal
 
-Kész, feltölthető weboldal a Keybridge Exit Partners számára: 21 oldal és 12 tudástár-cikk, a prospektus arculatával (fenyő, kő és sárgaréz; Newsreader és Hanken Grotesk betűk; boltíves logó).
+Kész, feltölthető weboldal a Keybridge Exit Partners számára: 23 oldal, 12 tudástár-cikk és 4 letölthető útmutató (e-book), a prospektus arculatával (fenyő, kő és sárgaréz; Newsreader és Hanken Grotesk betűk; boltíves logó).
 
 ## Mi hol van
 
@@ -10,6 +10,9 @@ Kész, feltölthető weboldal a Keybridge Exit Partners számára: 21 oldal és 
 | `site.json` | Cégadatok és beállítások. Indulás előtt ezt az egy fájlt kell kitölteni. |
 | `src/pages/` | A fő oldalak szövege. |
 | `src/articles/` | A tudástár cikkei. Egy fájl = egy cikk. |
+| `src/guides/` | Az útmutatók (e-bookok) szövege. Weboldalként és PDF-ként is megjelennek. |
+| `src/assets/pdf/` | Az útmutatók kész PDF változata. |
+| `tools/make-pdfs.js` | A PDF-ek újragenerálása a weboldal szövegéből (fejlesztői eszköz). |
 | `src/seo.json` | Oldalanként a keresőben megjelenő cím (legfeljebb 60 karakter) és leírás (legfeljebb 158 karakter). |
 | `src/assets/` | Stíluslap, képek, logók. |
 | `build.py` | Ebből a parancsból készül újra a `dist/` mappa: `python3 build.py` |
@@ -46,13 +49,33 @@ Indulás után:
 
 A cikk automatikusan megjelenik a Tudástárban, a főoldalon, az oldaltérképben és az RSS-ben, és megkapja a strukturált adatokat.
 
+## Útmutatók (e-bookok) és PDF-ek
+
+A négy útmutató szövege az `src/guides/` mappában van. A weboldal ebből készíti az olvasható változatot, a PDF pedig ugyanennek az oldalnak a nyomtatási képe (borítóval, oldalszámozással).
+
+Ha egy útmutató szövege változik, a PDF-et újra kell generálni, különben a letölthető változat a régi marad:
+
+```
+python3 build.py
+cd dist && python3 -m http.server 8765 &
+node tools/make-pdfs.js src/assets/pdf
+python3 build.py
+```
+
+Ehhez Node.js és Playwright kell. Ha nincs kéznél fejlesztő, a PDF bármely böngészőből is elkészíthető: az útmutató oldalán Nyomtatás, majd Mentés PDF-ként, háttérgrafikával.
+
+## A főoldali görgetős jelenet
+
+„A garázstól a világvállalatig" jelenet rajza és szövege a `src/pages/00-fooldal.html` fájlban van (`scrolly` rész). Az öt lépés szövege szabadon átírható. A rajz öt rétegből áll (`st2`–`st5` jelölésű csoportok), ezek a görgetés hatására jelennek meg. Csökkentett mozgást kérő eszközökön az átmenetek animáció nélkül váltanak.
+
 ## Keresőoptimalizálás: mi van beépítve
 
 - Minden oldalon egyedi cím és leírás, egyetlen H1, kanonikus URL, Open Graph és megosztási kép.
 - Strukturált adatok (schema.org): szervezet, weboldal, morzsamenü, szolgáltatás, cikk szerzővel és dátummal, GYIK, fogalomtár, személyek.
 - `sitemap.xml`, `robots.txt`, RSS, és `llms.txt` a mesterségesintelligencia-alapú keresőknek (ChatGPT, Perplexity, Google AI áttekintések).
 - Válaszközpontú cikkszerkezet: „Röviden” doboz az elején, kérdés formájú alcímek, GYIK a végén, forráslista.
-- Gyors betöltés: keretrendszer nélkül, WebP képek több méretben, késleltetett képbetöltés.
+- Gyors betöltés: keretrendszer nélkül, WebP képek több méretben, késleltetett képbetöltés, előtöltés a hivatkozásokra, sima oldalváltási átmenet.
+- Az útmutatók regisztráció nélkül olvashatók (ez a keresőknek és az MI-alapú válaszmotoroknak is látható tartalom), mellettük PDF-letöltés.
 - Akadálymentesség: billentyűzettel kezelhető, kontrasztos, a képeknek van szöveges leírása.
 - Magyar és angol oldal `hreflang` jelöléssel.
 

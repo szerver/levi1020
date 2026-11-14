@@ -414,7 +414,7 @@ def render_guide(g):
     return f'''<div class="progress" aria-hidden="true"></div>
 <article class="guide">
 <header class="guide-head band--dark"><div class="wrap split split--center" style="--l:1.35fr;--r:.65fr">
-<div class="stack">{crumbs_html(g)}
+<div class="stack"><img class="only-print" src="/assets/img/logo-sotet-hatterre.svg" alt="Keybridge Exit Partners" width="240" height="54">{crumbs_html(g)}
 <span class="eyebrow">{g["kicker"]} · {g["read"]} perc · PDF-ben is</span>
 <h1 class="h1">{g.get("h1", g["title"])}</h1>
 <p class="lead">{g["desc"]}</p>
