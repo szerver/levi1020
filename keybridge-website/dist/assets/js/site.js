@@ -22,6 +22,73 @@
       if (e.key === 'Escape' && nav.classList.contains('is-open')) { nav.classList.remove('is-open'); tg.setAttribute('aria-expanded', 'false'); tg.focus(); }
     });
   }
+  /* Legördülő főmenü */
+  var items = $$('.nav-item');
+  var closeAll = function (ex) { items.forEach(function (it) { if (it !== ex) { it.classList.remove('is-open'); $('.nav-btn', it).setAttribute('aria-expanded', 'false'); } }); };
+  items.forEach(function (it) {
+    var b = $('.nav-btn', it);
+    b.addEventListener('click', function () { var o = !it.classList.contains('is-open'); closeAll(it); it.classList.toggle('is-open', o); b.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('.nav-item')) closeAll(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+
+  /* Görgetős jelenet: a garázstól a világvállalatig */
+  $$('.scrolly').forEach(function (sc) {
+    var steps = $$('.sc-step', sc), world = $('#sc-world', sc), chips = $$('.sc-chips li', sc), roles = $$('.sc-role span', sc);
+    if (!steps.length || !world) return;
+    var Z = [1, 0.8, 0.62, 0.36, 0.36], ticking = false;
+    sc.classList.add('js');
+    var upd = function () {
+      ticking = false;
+      var mid = window.innerHeight * (window.innerWidth < 900 ? 0.72 : 0.56), f = 0;
+      steps.forEach(function (st, i) {
+        var r = st.getBoundingClientRect(), c = r.top + r.height / 2;
+        if (c < mid) {
+          f = i;
+          var nx = steps[i + 1];
+          if (nx) { var nr = nx.getBoundingClientRect(), nc = nr.top + nr.height / 2; f = i + Math.min(1, Math.max(0, (mid - c) / (nc - c))); }
+        }
+      });
+      var n = Math.min(steps.length, Math.floor(f + 0.5) + 1);
+      for (var i = 1; i <= 5; i++) sc.classList.toggle('s' + i, i <= n);
+      var a = Math.floor(f), b = Math.min(Z.length - 1, a + 1), z = Z[a] + (Z[b] - Z[a]) * (f - a);
+      world.setAttribute('transform', 'translate(400 470) scale(' + z.toFixed(3) + ') translate(-400 -470)');
+      steps.forEach(function (st, i) { st.classList.toggle('is-active', i === n - 1); });
+      chips.forEach(function (c, i) { c.classList.toggle('is-on', i < n - 1); c.classList.toggle('is-now', i === n - 1); });
+      roles.forEach(function (r, i) { r.classList.toggle('is-now', i === n - 1); });
+    };
+    var req = function () { if (!ticking) { ticking = true; requestAnimationFrame(upd); } };
+    window.addEventListener('scroll', req, { passive: true });
+    window.addEventListener('resize', req);
+    upd();
+  });
+
+  /* Megjelenés görgetésre: csak a képernyő alatti elemeknél, hogy az első nézet azonnal teljes legyen */
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target; io.unobserve(el); el.classList.add('in');
+        setTimeout(function () { el.classList.remove('rv', 'in'); el.style.removeProperty('--d'); }, 1300);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    $$('main .grid > *, main .steps > li, main .people > *, main .arch-steps > figure, main .contacts > li, main .figure, main .table-wrap').forEach(function (el) {
+      if (el.closest('.rail, .tool, .sc-grid') || el.hidden) return;
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.95) return;
+      var idx = Array.prototype.indexOf.call(el.parentNode.children, el);
+      el.style.setProperty('--d', Math.min(idx, 5) * 70 + 'ms');
+      el.classList.add('rv'); io.observe(el);
+    });
+  }
+
+  /* Számláló a nyitó mutatóknál */
+  $$('[data-count]').forEach(function (el) {
+    var to = parseInt(el.getAttribute('data-count'), 10), t0 = null;
+    if (!to || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var step = function (t) { if (!t0) t0 = t; var p = Math.min(1, (t - t0) / 1100); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  });
+
   $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
   /* Olvasási folyamatjelző a cikkeknél */

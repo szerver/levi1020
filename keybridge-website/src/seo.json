@@ -126,5 +126,29 @@
  "/tudastar/nyolc-ertekhajto/": [
   "Nyolc értékhajtó: mit néz a vevő az eredményen túl?",
   "A szorzót a kockázat mozgatja. Nyolc tényező, amely a vevők szemében a cég értékét emeli vagy csökkenti, kérdéssel és vészjellel."
+ ],
+ "/helyzetek/": [
+  "Öt tulajdonosi helyzet: melyik az Öné? | Keybridge",
+  "Minden rajtam múlik. Eladnám. A gyerekem veszi át. Tulajdonos maradnék. Mi lesz, ha történik valami? Öt helyzet, kutatási háttérrel és első lépésekkel."
+ ],
+ "/utmutatok/": [
+  "Útmutatók és e-bookok cégtulajdonosoknak | Keybridge",
+  "Négy részletes, forrásolt útmutató az exitről, a cégeladásról, az önjáró cégről és a generációváltásról. Weben olvasható, PDF-ben letölthető."
+ ],
+ "/utmutatok/exit-korkep-2026/": [
+  "Exit Körkép 2026: kutatások a generációváltásról",
+  "Hét megállapítás európai és magyar felmérésekből: hány céget érint az átadás, mekkora a rés a szándék és a tett között, és mit áraz ma a piac."
+ ],
+ "/utmutatok/onjaro-ceg-kezikonyv/": [
+  "Az önjáró cég kézikönyve: letölthető útmutató",
+  "Miért növi ki minden cég az alapítóját, és hogyan építhető fel a működés, amelyben a cég a tulajdonos nélkül is hozza a tervet. PDF-ben is."
+ ],
+ "/utmutatok/cegeladas-kezikonyv/": [
+  "Cégeladás kézikönyv tulajdonosoknak, ellenőrzőlistával",
+  "Hogyan számol a vevő, hogyan zajlik a folyamat, és mely feltételek döntik el, mennyi pénz marad Önnél. Harmincpontos eladói ellenőrzőlistával."
+ ],
+ "/utmutatok/generaciovaltas-kezikonyv/": [
+  "Generációváltás kézikönyv családi cégeknek",
+  "A három kör modelltől a családi chartáig: miért halogat az alapító, mi a négyféle átmenet, és hogyan lesz a családi egyetértésből megállapodás."
  ]
 }
