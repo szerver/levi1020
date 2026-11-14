@@ -30,8 +30,25 @@ AUTHORS = {
 }
 CATS = {'ertek': 'Érték és értékelés', 'tranzakcio': 'Cégeladás', 'utodlas': 'Utódlás és család', 'mukodes': 'Önjáró cég', 'vagyon': 'Vagyon és jog'}
 
-NAV = [('program', 'Program', '/program/'), ('exit-utak', 'Exit utak', '/exit-utak/'), ('bvk', 'Bizalmi vagyonkezelés', '/bizalmi-vagyonkezeles/'),
-       ('tudastar', 'Tudástár', '/tudastar/'), ('partnerek', 'Partnerek', '/partnerek/'), ('kapcsolat', 'Kapcsolat', '/kapcsolat/')]
+MENU = [
+    ('megoldasok', 'Megoldások', [
+        ('Felkészítés', [('/program/', 'Öt év, öt kapu', 'Mérföldkövekhez kötött program'), ('/diagnozis/', 'Exit Readiness diagnózis', 'Hol áll ma a cég?'), ('/bizalmi-vagyonkezeles/', 'Bizalmi vagyonkezelés', 'Család és kontroll')]),
+        ('Exit utak', [('/exit-utak/', 'A három út áttekintése', 'Összehasonlítás'), ('/exit-utak/cegertekesites/', 'Cégértékesítés', 'Erős tárgyalási pozícióból'), ('/exit-utak/atadas-menedzsmentnek/', 'Átadás menedzsmentnek', 'A tulajdon marad'), ('/exit-utak/csaladi-utodlas/', 'Családi utódlás', 'Felkészült utód, rendezett család')]),
+    ], ('/eszkozok/onteszt/', 'Önteszt · 2 perc', 'Nyolc kérdés, amelyet egy vevő is feltenne', 'Kitöltöm')),
+    ('helyzetek', 'Helyzetek', [
+        ('Melyik az Öné?', [('/helyzetek/#minden-rajtam-mulik', 'Minden rajtam múlik', 'Lassítanék, de nem lehet'), ('/helyzetek/#eladnam', 'Néhány éven belül eladnám', 'A legjobb árat szeretném'), ('/helyzetek/#a-gyerekem-veszi-at', 'A gyerekem veszi át', 'Vagy mégsem?')]),
+        ('', [('/helyzetek/#tulajdonos-maradnek', 'Tulajdonos maradnék', 'De nem vezetnék'), ('/helyzetek/#ha-tortenik-valami', 'Ha velem történik valami', 'Váratlan helyzetre készülnék'), ('/helyzetek/', 'Mind az öt helyzet', 'Áttekintés')]),
+    ], ('/eszkozok/cegertek-kalkulator/', 'Kalkulátor · 3 perc', 'Mennyit ér egy fél szorzó az Ön eredményénél?', 'Számolok')),
+    ('elemzesek', 'Elemzések', [
+        ('Útmutatók és e-bookok', [('/utmutatok/', 'Minden útmutató', 'Olvasható és letölthető'), ('/utmutatok/onjaro-ceg-kezikonyv/', 'Az önjáró cég kézikönyve', 'A garázstól a tulajdonosi szerepig'), ('/utmutatok/cegeladas-kezikonyv/', 'Cégeladás kézikönyv', 'Értékeléstől a zárásig'), ('/utmutatok/generaciovaltas-kezikonyv/', 'Generációváltás kézikönyv', 'Család, tulajdon, üzlet')]),
+        ('Tudástár', [('/tudastar/', 'Cikkek és elemzések', 'Forrásokkal, számpéldákkal'), ('/tudastar/esetek/', 'Esettár', 'Tizenkét valós eset'), ('/tudastar/fogalomtar/', 'Fogalomtár', 'Az exit nyelve magyarul'), ('/gyik/', 'Gyakori kérdések', 'Egyenes válaszok')]),
+    ], ('/utmutatok/exit-korkep-2026/', 'Kiemelt elemzés', 'Exit Körkép 2026: amit a kutatások a magyar generációváltásról mondanak', 'Elolvasom')),
+    ('rolunk', 'Rólunk', [
+        ('A cég', [('/partnerek/', 'Partnereink', 'Akikkel egy asztalhoz ül'), ('/modszertan/', 'Módszertan és kutatás', '221 forrás, 28 eset'), ('/sajto/', 'Sajtószoba', 'Adatok és nyilatkozók')]),
+        ('', [('/kapcsolat/', 'Kapcsolat', 'Beszélgessünk a cégéről'), ('/en/', 'English', 'Overview for international readers')]),
+    ], None),
+]
+NAVMAP = {'program': 'megoldasok', 'exit-utak': 'megoldasok', 'bvk': 'megoldasok', 'helyzetek': 'helyzetek', 'tudastar': 'elemzesek', 'elemzesek': 'elemzesek', 'partnerek': 'rolunk', 'kapcsolat': 'kapcsolat'}
 
 
 def esc(s):
@@ -129,7 +146,23 @@ for f in sorted(os.listdir(os.path.join(SRC, 'articles'))):
         a.setdefault('updated', a['date'])
         articles.append(a)
 articles.sort(key=lambda a: a['date'], reverse=True)
-BYURL = {p['url']: p for p in pages + articles}
+guides = []
+GDIR = os.path.join(SRC, 'guides')
+for f in sorted(os.listdir(GDIR)) if os.path.isdir(GDIR) else []:
+    if f.endswith('.html'):
+        g = parse(os.path.join(GDIR, f))
+        g['slug'] = f[3:-5] if f[:2].isdigit() else f[:-5]
+        g['url'] = f'/utmutatok/{g["slug"]}/'
+        g['type'] = 'guide'
+        g['nav'] = 'elemzesek'
+        g['cat'] = 'utmutato'
+        g.setdefault('author', 'kb')
+        g.setdefault('updated', g['date'])
+        g['img'] = f'/assets/img/og-{g["slug"]}.jpg' if os.path.exists(os.path.join(SRC, 'assets', 'img', f'og-{g["slug"]}.jpg')) else '/assets/img/og.jpg'
+        guides.append(g)
+CATS['utmutato'] = 'Útmutató'
+ALL = pages + articles + guides
+BYURL = {p['url']: p for p in ALL}
 SEO = json.load(open(os.path.join(SRC, 'seo.json'), encoding='utf8'))  # keresőcím (max. 60) és leírás (max. 158 karakter) oldalanként
 
 
@@ -149,6 +182,18 @@ def article_tile(a, dark=False):
     return (f'<a class="tile{" tile--dark" if dark else ""}" href="{a["url"]}" data-cat="{a["cat"]}">'
             f'<span class="meta"><span>{CATS[a["cat"]]}</span><span>{a["read"]} perc</span></span>'
             f'<h3 class="h3">{a["title"]}</h3><p>{a["desc"]}</p><span class="more">Elolvasom →</span></a>')
+
+
+def guide_tile(g):
+    return (f'<a class="tile guide-tile" href="{g["url"]}"><span class="cover cover--s"><img src="/assets/img/{g["cover"]}" alt="" width="300" height="400" loading="lazy"><span class="cover-t"><small>{g["kicker"]}</small><b>{g["short"]}</b></span></span>'
+            f'<span class="stack stack-s"><span class="meta"><span>{g["kicker"]}</span><span>{g["read"]} perc · PDF</span></span><h3 class="h3">{g["title"]}</h3><p>{g["desc"]}</p><span class="more">Elolvasom vagy letöltöm →</span></span></a>')
+
+
+def contacts_block():
+    return '''<section class="band band--parchment" aria-labelledby="kontaktok"><div class="wrap split split--center" style="--l:1fr;--r:1fr">
+<div class="stack"><span class="eyebrow">Kapcsolattartók</span><h2 class="h2" id="kontaktok">Beszéljen <em>a partnereinkkel</em></h2><p>Egy kapcsolattartó, mögötte a teljes csapat és a szakértői hálózat. Az első beszélgetés kötetlen, és semmire nem kötelez.</p><div class="row"><a class="btn" href="/kapcsolat/">Időpontot kérek</a><a class="link-arrow" href="/partnerek/">Bemutatkozunk</a></div></div>
+<ul class="contacts"><li><span class="av" aria-hidden="true">PA</span><span><b>Benkóné Paulovics Anita</b><small>Partner</small></span></li><li><span class="av" aria-hidden="true">BM</span><span><b>Berényi Mariann</b><small>Partner</small></span></li><li><span class="av" aria-hidden="true">DA</span><span><b>Duhonyi Andrea</b><small>Partner</small></span></li><li><img class="av" src="/assets/img/kohari-levente-320.webp" alt="" width="56" height="56" loading="lazy"><span><b>Kohári Levente</b><small>Partner · CFA® · EFA®</small></span></li></ul>
+</div></section>'''
 
 
 def org_ld():
@@ -181,12 +226,12 @@ def build_ld(p, body):
     cr = crumbs_for(p)
     if len(cr) > 1:
         graph.append({"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": html.unescape(n), "item": BASE + u} for i, (n, u) in enumerate(cr)]})
-    if p['type'] == 'article':
+    if p['type'] in ('article', 'guide'):
         au = AUTHORS[p['author']]
         author = {"@type": "Person", "name": au['name'], "jobTitle": au['title'], "url": BASE + au['url']} if p['author'] != 'kb' else {"@id": BASE + "/#org"}
         graph.append({"@type": "Article", "headline": html.unescape(p['title']), "description": html.unescape(p['desc']), "inLanguage": "hu-HU",
                       "datePublished": p['date'], "dateModified": p['updated'], "author": author, "publisher": {"@id": BASE + "/#org"},
-                      "mainEntityOfPage": url, "image": BASE + p.get('img', '/assets/img/og.jpg'), "articleSection": CATS[p['cat']],
+                      "mainEntityOfPage": url, "image": BASE + p.get('img', '/assets/img/og.jpg'), "articleSection": CATS[p['cat']], **({"encoding": {"@type": "MediaObject", "encodingFormat": "application/pdf", "contentUrl": BASE + f'/assets/pdf/{p["slug"]}.pdf'}} if p['type'] == 'guide' else {}),
                       "isAccessibleForFree": True, "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".tldr"]}})
     else:
         wp = {"@type": p.get('schema', 'WebPage'), "@id": url + "#page", "url": url, "name": html.unescape(p['title']), "description": html.unescape(p['desc']),
@@ -229,7 +274,7 @@ def head(p, body):
           f'<link rel="alternate" hreflang="hu" href="{BASE}/">' if p['url'] in ('/', '/en/') else '',
           f'<link rel="alternate" hreflang="en" href="{BASE}/en/">' if p['url'] in ('/', '/en/') else '',
           f'<link rel="alternate" hreflang="x-default" href="{BASE}/">' if p['url'] in ('/', '/en/') else '',
-          f'<meta property="og:type" content="{"article" if p["type"] == "article" else "website"}">',
+          f'<meta property="og:type" content="{"article" if p["type"] in ("article", "guide") else "website"}">',
           f'<meta property="og:site_name" content="{esc(CFG["name"])}">',
           f'<meta property="og:locale" content="{"hu_HU" if lang == "hu" else "en_GB"}">',
           f'<meta property="og:title" content="{esc(html.unescape(full).split(" | ")[0])}">',
@@ -246,21 +291,32 @@ def head(p, body):
           '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
           '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap">',
           '<link rel="stylesheet" href="/assets/css/site.css">']
-    if p['type'] == 'article':
+    if not PREVIEW:
+        h.append('<script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/assets/*"}}]},"eagerness":"moderate"}]}</script>')
+    if p['type'] in ('article', 'guide'):
         h.append(f'<meta property="article:published_time" content="{p["date"]}">\n<meta property="article:modified_time" content="{p["updated"]}">\n<meta name="author" content="{esc(AUTHORS[p["author"]]["name"])}">')
     h.append(f'<script type="application/ld+json">{build_ld(p, body)}</script>')
     return '\n'.join(x for x in h if x)
 
 
 def header(p):
-    cur = p.get('nav', '')
-    links = ''.join(f'<a href="{u}"{" aria-current=\"page\"" if k == cur else ""}>{n}</a>' for k, n, u in NAV)
+    cur = NAVMAP.get(p.get('nav', ''), '')
+    items = []
+    for key, label, cols, feat in MENU:
+        colhtml = ''
+        for head_, links in cols:
+            lis = ''.join(f'<li><a href="{u}"><b>{t}</b><small>{d}</small></a></li>' for u, t, d in links)
+            colhtml += f'<div class="sub-col">{f"<span class=sub-h>{head_}</span>" if head_ else "<span class=sub-h aria-hidden=true>&nbsp;</span>"}<ul>{lis}</ul></div>'
+        feath = f'<a class="sub-feat" href="{feat[0]}"><span class="eyebrow">{feat[1]}</span><strong>{feat[2]}</strong><span class="more">{feat[3]} →</span></a>' if feat else ''
+        items.append(f'<div class="nav-item"><button class="nav-btn{" is-current" if key == cur else ""}" type="button" aria-expanded="false" aria-controls="sub-{key}">{label}</button>'
+                     f'<div class="sub" id="sub-{key}"><div class="wrap sub-in">{colhtml}{feath}</div></div></div>')
+    kap = ' aria-current="page"' if cur == 'kapcsolat' else ''
     return f'''<a class="skip" href="#tartalom">Ugrás a tartalomra</a>
 <header class="site-head">
 <div class="wrap">
 <a class="brand" href="/" aria-label="Keybridge Exit Partners, főoldal"><img src="/assets/img/logo.svg" alt="Keybridge Exit Partners" width="204" height="46"></a>
 <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="fomenu"><span aria-hidden="true"></span>Menü</button>
-<nav class="nav" id="fomenu" aria-label="Fő navigáció">{links}<a class="btn" href="/kapcsolat/">Beszélgessünk</a></nav>
+<nav class="nav" id="fomenu" aria-label="Fő navigáció">{"".join(items)}<a class="nav-link" href="/kapcsolat/"{kap}>Kapcsolat</a><a class="btn" href="/kapcsolat/">Beszélgessünk</a></nav>
 <a class="btn head-cta" href="/kapcsolat/">Beszélgessünk</a>
 </div>
 </header>'''
@@ -280,10 +336,10 @@ def footer(p):
 <div class="wrap">
 <div class="foot-grid">
 <div class="foot-brand stack"><a href="/" aria-label="Keybridge Exit Partners, főoldal"><img src="/assets/img/logo-allo-sotet-hatterre.svg" alt="Keybridge Exit Partners" width="118" height="104" loading="lazy"></a><p>A cég, amely Ön nélkül is megáll.</p></div>
-<nav aria-label="Program"><h2>Program</h2><ul><li><a href="/program/">Öt év, öt kapu</a></li><li><a href="/diagnozis/">Exit Readiness diagnózis</a></li><li><a href="/modszertan/">Módszertan és kutatás</a></li><li><a href="/bizalmi-vagyonkezeles/">Bizalmi vagyonkezelés</a></li></ul></nav>
-<nav aria-label="Exit utak"><h2>Exit utak</h2><ul><li><a href="/exit-utak/">A három út áttekintése</a></li><li><a href="/exit-utak/cegertekesites/">Cégértékesítés</a></li><li><a href="/exit-utak/atadas-menedzsmentnek/">Átadás menedzsmentnek</a></li><li><a href="/exit-utak/csaladi-utodlas/">Családi utódlás</a></li></ul></nav>
-<nav aria-label="Tudástár"><h2>Tudástár</h2><ul><li><a href="/tudastar/">Cikkek és elemzések</a></li><li><a href="/tudastar/fogalomtar/">Fogalomtár</a></li><li><a href="/tudastar/esetek/">Esettár</a></li><li><a href="/gyik/">Gyakori kérdések</a></li><li><a href="/eszkozok/onteszt/">Önteszt</a></li><li><a href="/eszkozok/cegertek-kalkulator/">Cégérték-kalkulátor</a></li></ul></nav>
-<nav aria-label="Cég"><h2>Cég</h2><ul><li><a href="/partnerek/">Partnerek</a></li><li><a href="/sajto/">Sajtószoba</a></li><li><a href="/kapcsolat/">Kapcsolat</a></li><li><a href="/en/" lang="en" hreflang="en">English</a></li></ul></nav>
+<nav aria-label="Megoldások"><h2>Megoldások</h2><ul><li><a href="/program/">Öt év, öt kapu</a></li><li><a href="/diagnozis/">Exit Readiness diagnózis</a></li><li><a href="/exit-utak/cegertekesites/">Cégértékesítés</a></li><li><a href="/exit-utak/atadas-menedzsmentnek/">Átadás menedzsmentnek</a></li><li><a href="/exit-utak/csaladi-utodlas/">Családi utódlás</a></li><li><a href="/bizalmi-vagyonkezeles/">Bizalmi vagyonkezelés</a></li></ul></nav>
+<nav aria-label="Helyzetek"><h2>Helyzetek</h2><ul><li><a href="/helyzetek/#minden-rajtam-mulik">Minden rajtam múlik</a></li><li><a href="/helyzetek/#eladnam">Néhány éven belül eladnám</a></li><li><a href="/helyzetek/#a-gyerekem-veszi-at">A gyerekem veszi át</a></li><li><a href="/helyzetek/#tulajdonos-maradnek">Tulajdonos maradnék</a></li><li><a href="/helyzetek/#ha-tortenik-valami">Ha velem történik valami</a></li></ul></nav>
+<nav aria-label="Elemzések"><h2>Elemzések</h2><ul><li><a href="/utmutatok/exit-korkep-2026/">Exit Körkép 2026</a></li><li><a href="/utmutatok/">Útmutatók és e-bookok</a></li><li><a href="/tudastar/">Cikkek</a></li><li><a href="/tudastar/esetek/">Esettár</a></li><li><a href="/tudastar/fogalomtar/">Fogalomtár</a></li><li><a href="/eszkozok/onteszt/">Önteszt</a></li><li><a href="/eszkozok/cegertek-kalkulator/">Cégérték-kalkulátor</a></li></ul></nav>
+<nav aria-label="Cég"><h2>Cég</h2><ul><li><a href="/partnerek/">Partnerek</a></li><li><a href="/modszertan/">Módszertan és kutatás</a></li><li><a href="/sajto/">Sajtószoba</a></li><li><a href="/gyik/">Gyakori kérdések</a></li><li><a href="/kapcsolat/">Kapcsolat</a></li><li><a href="/en/" lang="en" hreflang="en">English</a></li></ul></nav>
 </div>
 <div class="foot-legal">
 <nav aria-label="Jogi információk"><a href="/jogi/#impresszum">Impresszum</a><a href="/jogi/#adatkezeles">Adatkezelési tájékoztató</a><a href="/jogi/#nyilatkozat">Jogi nyilatkozat</a><a href="/jogi/#sutik">Sütik</a></nav>
@@ -348,10 +404,45 @@ def render_article(a):
 <div class="grid" style="--min:280px">{related}</div></div></section>'''
 
 
+def render_guide(g):
+    body, toc = add_ids(g['body'])
+    au = AUTHORS[g['author']]
+    toc_html = ''.join(f'<li><a href="#{i}">{t}</a></li>' for i, t in toc)
+    facts = ''.join(f'<div class="stat"><span class="num">{a.strip()}</span><p>{b.strip()}</p></div>' for a, b in (x.split('::') for x in g['facts'].split('|')))
+    others = ''.join(guide_tile(x) for x in guides if x is not g)
+    pdf = f'/assets/pdf/{g["slug"]}.pdf'
+    return f'''<div class="progress" aria-hidden="true"></div>
+<article class="guide">
+<header class="guide-head band--dark"><div class="wrap split split--center" style="--l:1.35fr;--r:.65fr">
+<div class="stack">{crumbs_html(g)}
+<span class="eyebrow">{g["kicker"]} · {g["read"]} perc · PDF-ben is</span>
+<h1 class="h1">{g.get("h1", g["title"])}</h1>
+<p class="lead">{g["desc"]}</p>
+<div class="byline"><span>Írta: <b>{au["name"]}</b></span><span><time datetime="{g["date"]}">{hu_date(g["date"])}</time></span></div>
+<div class="row no-print"><a class="btn btn--brass" href="{pdf}" target="_blank" rel="noopener">Letöltés PDF-ben</a><a class="btn btn--ghost" href="#{toc[0][0] if toc else "tartalom"}">Olvasás itt</a></div></div>
+<div class="cover"><img src="/assets/img/{g["cover"]}" alt="" width="600" height="800"><span class="cover-t"><small>Keybridge Exit Partners · {g["kicker"]}</small><b>{g["short"]}</b><i>{g["date"][:4]}</i></span></div>
+</div></header>
+<section class="band band--tight band--parchment guide-facts" aria-label="Kiemelt számok"><div class="wrap grid" style="--min:200px">{facts}</div></section>
+<div class="wrap article-layout">
+<aside class="toc" aria-label="Fejezetek"><strong>Fejezetek</strong><ol>{toc_html}</ol><a class="btn btn--ghost btn--plain no-print" href="{pdf}" target="_blank" rel="noopener" style="margin-top:18px;min-height:44px;padding:8px 14px;font-size:14.5px">PDF letöltése</a></aside>
+<div class="prose">
+{body}
+<div class="authorbox no-print"><span class="av" aria-hidden="true">K</span><div class="stack stack-s"><span class="h4">{au["name"]}</span><span class="small muted">{au["title"]}</span><p>{au["bio"]}</p></div></div>
+<p class="note">Ez az útmutató általános tájékoztatás, nem jogi, adó vagy befektetési tanácsadás. Konkrét ügyben ügyvéddel és bejegyzett adótanácsadóval kell egyeztetni. A számpéldák illusztrációk, nem ígéretek. A jogi és adózási leírások a 2026 őszi állapotot tükrözik. © {g["date"][:4]} Keybridge Exit Partners</p>
+</div>
+</div>
+</article>
+<section class="band band--parchment no-print" aria-labelledby="tobbi"><div class="wrap stack stack-l">
+<div class="row" style="justify-content:space-between"><h2 class="h2" id="tobbi">További <em>útmutatók</em></h2><a class="link-arrow" href="/utmutatok/">Mind</a></div>
+<div class="grid rail" style="--min:300px">{others}</div></div></section>'''
+
+
 def render(p):
     body = p['body']
     if p['type'] == 'article':
         main = render_article(p)
+    elif p['type'] == 'guide':
+        main = render_guide(p)
     else:
         main = body
         if '{{crumbs}}' in main:
@@ -360,10 +451,16 @@ def render(p):
             main = main.replace('{{articles}}', ''.join(article_tile(a) for a in articles))
         if '{{latest_articles}}' in main:
             main = main.replace('{{latest_articles}}', ''.join(article_tile(a) for a in articles[:3]))
+        if '{{guides}}' in main:
+            main = main.replace('{{guides}}', ''.join(guide_tile(g) for g in guides))
+        if '{{contacts}}' in main:
+            main = main.replace('{{contacts}}', contacts_block())
         if '{{article_count}}' in main:
             main = main.replace('{{article_count}}', str(len(articles)))
         if '{{cat_filters}}' in main:
             main = main.replace('{{cat_filters}}', '<button type="button" aria-pressed="true" data-filter="*">Mind</button>' + ''.join(f'<button type="button" aria-pressed="false" data-filter="{k}">{v}</button>' for k, v in CATS.items()))
+    if p.get('schema') == 'Service' and '{{contacts}}' not in p['body']:
+        main += contacts_block()
     main = fill(main)
     lang = p.get('lang', 'hu')
     cfgjs = json.dumps({'email': CFG['email'], 'form': CFG.get('form_endpoint', ''), 'news': CFG.get('newsletter_endpoint', '')}, ensure_ascii=False)
@@ -385,11 +482,11 @@ def main():
     if os.path.exists(OUT):
         shutil.rmtree(OUT)
     shutil.copytree(os.path.join(SRC, 'assets'), os.path.join(OUT, 'assets'))
-    for p in pages + articles:
+    for p in ALL:
         path = outpath(p['url'])
         os.makedirs(os.path.dirname(path), exist_ok=True)
         open(path, 'w', encoding='utf8').write(render(p))
-    idx = [p for p in pages + articles if not p.get('noindex') and p['url'] != '/404.html']
+    idx = [p for p in ALL if not p.get('noindex') and p['url'] != '/404.html']
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for p in idx:
         pr = '1.0' if p['url'] == '/' else ('0.8' if p['url'].count('/') == 2 else '0.6')
@@ -403,12 +500,13 @@ def main():
     ll = [f'# {CFG["name"]}', '', f'> {CFG["tagline"]}. Három vagy öt év alatt felépítjük azt a működést, amelyben a cég a tulajdonos nélkül is fut, skálázható, és megőrzi az értékét. A végén a tulajdonos dönt: eladja, felkészített menedzsmentnek adja át, vagy a családban viszi tovább.', '',
           'Célcsoport: 1 és 10 milliárd forint közötti árbevételű, magyar magánszemély tulajdonában álló középvállalkozások. Partnerek: Benkóné Paulovics Anita, Berényi Mariann, Duhonyi Andrea, Kohári Levente.', '', '## Fő oldalak', '']
     ll += [f'- [{clean(p["title"])}]({BASE}{p["url"]}): {clean(p["desc"])}' for p in pages if not p.get('noindex') and p['url'] not in ('/404.html',)]
+    ll += ['', '## Útmutatók és e-bookok (weben olvasható, PDF-ben letölthető)', ''] + [f'- [{clean(g["title"])}]({BASE}{g["url"]}): {clean(g["desc"])}' for g in guides]
     ll += ['', '## Tudástár: cikkek', ''] + [f'- [{clean(a["title"])}]({BASE}{a["url"]}): {clean(a["desc"])}' for a in articles]
     ll += ['', '## Megjegyzés', '', 'A tartalom általános tájékoztatás, nem jogi, adó vagy befektetési tanácsadás. A jogi és adózási leírások a 2026 őszi magyar állapotot tükrözik.']
     open(os.path.join(OUT, 'llms.txt'), 'w', encoding='utf8').write('\n'.join(ll) + '\n')
     rss = ['<?xml version="1.0" encoding="UTF-8"?>', '<rss version="2.0"><channel>', f'<title>{CFG["name"]} Tudástár</title>', f'<link>{BASE}/tudastar/</link>',
            '<description>Cikkek cégeladásról, utódlásról és az önjáró cégről magyar tulajdonosoknak.</description>', '<language>hu</language>']
-    for a in articles:
+    for a in sorted(articles + guides, key=lambda x: x['date'], reverse=True):
         d = datetime.date.fromisoformat(a['date']).strftime('%a, %d %b %Y 08:00:00 +0100')
         rss.append(f'<item><title>{esc(clean(a["title"]))}</title><link>{BASE}{a["url"]}</link><guid>{BASE}{a["url"]}</guid><pubDate>{d}</pubDate><description>{esc(clean(a["desc"]))}</description></item>')
     rss.append('</channel></rss>')
@@ -417,7 +515,7 @@ def main():
     json.dump({"name": CFG['name'], "short_name": "Keybridge", "start_url": "/", "display": "browser", "background_color": "#F5F1E8", "theme_color": "#0A2421", "lang": "hu",
                "icons": [{"src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png"}, {"src": "/assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml"}]},
               open(os.path.join(OUT, 'site.webmanifest'), 'w', encoding='utf8'), ensure_ascii=False, indent=1)
-    print(f'{len(pages)} oldal + {len(articles)} cikk -> {OUT}')
+    print(f'{len(pages)} oldal + {len(articles)} cikk + {len(guides)} útmutató -> {OUT}')
 
 
 if __name__ == '__main__':
